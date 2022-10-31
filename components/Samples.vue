@@ -10,16 +10,13 @@ onMounted(() => {
         repeat: 0, repeatDelay: 2, yoyo: false,
 
         scrollTrigger: {
-            trigger: ".samples-container",
-            start: "top center+=20%", // when the top of the trigger hits the top of the viewport
-            end: "+=50%", // end after scrolling 500px beyond the start
+            trigger: ".answers-container",
+            start: "top 80%", // when the top of the trigger hits the top of the viewport
+            end: "bottom+=100 bottom", // end after scrolling 500px beyond the start
             scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar,
             // markers: true
 
         }
-
-
-
     }
     );
 
@@ -61,12 +58,7 @@ onMounted(() => {
         autoAlpha: 0, duration: 1, ease: "power1.out"
     })
 
-    // tl.call(function () {
-    //     question.innerText = "Что делать, если отравился аламинолом?";
-    // })
-    // tl.from('.question', {
-    //     width: 0, duration: 2, ease: "steps(20)"
-    // })
+
 
 })
 
@@ -80,30 +72,23 @@ onMounted(() => {
             Отраслевая специфика: Фарма
         </h2>
         <div class="answers-container">
-            <p class="question question1 blinking-cursor">Как получить спецодежду?</p>
+            <p class="question question1 blinking-cursor"><span>запрос </span>Как получить спецодежду?</p>
             <p class="answer answer1">ИД -П02-0 0-006 В3 Обращение технологической и одноразовой одежды и обуви</p>
             <p class="answer answer2">Выдача и учет технологической одежды
                 Потребность комплектов одежды и принадлежностей для одного работника в год устанавливают с учетом
                 периодичности смены одежды и вида выполняемой работы.</p>
-        </div>
-        <div class="answers-container">
-            <p class="question question2 blinking-cursor">Что делать, если отравился аламинолом?</p>
+            <p class="question question2 blinking-cursor"><span>запрос </span>Что делать, если отравился аламинолом?</p>
             <p class="answer answer3">СпДС-П03-0 1-115 В3 Аламинол</p>
-            <p class="answer answer4">МЕРЫ ПЕРВОЙ ПОМОЩИ ПРИ СЛУЧАЙНОМ ОТРАВЛЕНИИ: При случайном попадании средства в
-                желудок необходимо выпить несколько стаканов воды, с 10–20 измельчёнными таблетками активированного
-                угля. При необходимости обратиться к врачу.
+            <p class="answer answer4">Меры первой помощи при случайном отравлении: При случайном попадании средства в желудок необходимо выпить несколько стаканов воды, с 10–20 измельчёнными таблетками активированного угля. При необходимости обратиться к врачу.
             </p>
-        </div>
-        <div class="answers-container">
-            <p class="question question3 blinking-cursor">Кто обеспечивает безопасность котельной?</p>
+            <p class="question question3 blinking-cursor"><span>запрос </span>Кто обеспечивает безопасность котельной?</p>
             <p class="answer answer5">П Л-П05-0 5-001 В1 Положение о газовой службе БМК НАНОЛЕК
             </p>
-            <p class="answer answer6">Газовая служба котельной БМК &laquo;НАНОЛЕК&raquo; предназначена для проведения
-                комплекса мероприятий, обеспечивающих содержание опасных производственных объектов систем газового
-                хозяйства в&nbsp;исправном и&nbsp;безопасном состоянии...
+            <p class="answer answer6">Газовая служба котельной БМК &laquo;НАНОЛЕК&raquo; предназначена для проведения комплекса мероприятий, обеспечивающих содержание опасных производственных объектов систем газового хозяйства в&nbsp;исправном и&nbsp;безопасном состоянии...
             </p>
         </div>
-        <p class="subhead">В ответе нет точного соответствия запросу. Поиск был по смыслу!
+
+        <p class="sub2">В ответе нет точного соответствия запросу. Поиск был по смыслу!
         </p>
         <p class="subhead">Минч ИИ – это поисковая система на основе глубоких нейронных сетей, преобразующая массив
             внутренней документации в активную среду знаний
@@ -146,8 +131,20 @@ onMounted(() => {
     transition: background-color 2s;
     white-space: nowrap;
     overflow: hidden;
+    margin-top: 32px;
+
+
 }
 
+.question span{ 
+    text-transform: uppercase;
+    color: var(--main-green-color);
+    margin-right: 8px;
+    font-weight: 700;
+    font-size: 14px;
+
+
+}
 .answer {
     border: 1px solid var(--main-green-color);
     border-radius: 15px;
@@ -155,6 +152,9 @@ onMounted(() => {
     display: flex;
     align-items: center;
     transition: background-color 2s;
+    max-width: fit-content;
+    max-width: 600px;
+
 }
 
 
@@ -167,7 +167,6 @@ onMounted(() => {
     flex-direction: column;
     gap: 16px;
     align-items: flex-start;
-    margin-top: 64px;
 }
 
 .blinking-cursor {

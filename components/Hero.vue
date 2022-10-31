@@ -19,7 +19,18 @@ onMounted(() => {
         repeatRefresh: true
     })
 
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwSnyk3-OSnZ6uWE67UPBztjqb-g-xb9MMYouzZKm0LCDCbcP5H3uBv6DiYy_9h3rdr/exec'
+    const form = document.forms['submit-to-google-sheet']
+    
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+    })
 })
+
+
 
 </script>
 
@@ -32,6 +43,16 @@ onMounted(() => {
         <h1>Извлечем смысл из ваших документов понятным языком</h1>
         <p class="heroSbh">Минч ИИ – это поисковая система на основе глубоких нейронных сетей, преобразующая массив внутренней документации в активную среду знаний
         </p>
+
+
+        <form class="form-container" name="submit-to-google-sheet">
+            <input class="input" name="email" type="email" placeholder="Введите ваш email" required>
+            <button class="button" type="submit">Получить консультацию</button>
+        </form>
+
+
+
+
     </div>
 </template>
 
@@ -72,4 +93,13 @@ h1 {
     margin-top: 2.381vw;
 
 }
+
+.form-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+}
+
 </style>
