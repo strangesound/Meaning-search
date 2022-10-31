@@ -65,7 +65,7 @@ body {
 }
 
 .container{
-  padding: 8px;
+  padding: 8px 32px;
   overflow: hidden;
   max-width: 1344px;
   margin-left: auto;

@@ -17,6 +17,7 @@
 <style scoped>
 .header {
     display: flex;
+    margin: 32px 0;
 }
 
 .logo {
