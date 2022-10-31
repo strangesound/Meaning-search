@@ -14,14 +14,5 @@
     <Features />
     <Samples />
     <Modal v-show="showModal" @close-modal="showModal = false"/>
-    <Features />
-    <Features />
-    <Features />
-    <Features />
-    <Features />
-    <Features />
-    <Features />
-    <Features />
-    <Features />
   </div>
 </template>
