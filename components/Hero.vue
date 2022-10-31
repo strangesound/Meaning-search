@@ -1,5 +1,13 @@
 <script setup>
 import { gsap } from "gsap";
+// const emit = defineEmits('open-modal')
+import { defineEmits } from 'vue'
+
+const emit = defineEmits(['open-modal'])
+
+const myModal = () => {
+    emit('open-modal')
+}
 
 onMounted(() => {
     gsap.to('.gradient', {
@@ -18,16 +26,35 @@ onMounted(() => {
         ease: "power4.inOut",
         repeatRefresh: true
     })
-
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwSnyk3-OSnZ6uWE67UPBztjqb-g-xb9MMYouzZKm0LCDCbcP5H3uBv6DiYy_9h3rdr/exec'
-    const form = document.forms['submit-to-google-sheet']
     
-    form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-            .then(response => console.log('Success!', response))
-            .catch(error => console.error('Error!', error.message))
-    })
+    
+    let form = document.getElementById('sheetdb-form');
+
+
+    form.addEventListener("submit", e => {
+        e.preventDefault();
+        fetch(form.action, {
+            method: "POST",
+            body: new FormData(document.getElementById("sheetdb-form")),
+        }).then(
+            response => response.json()
+        ).then((html) => {
+            // you can put any JS code here
+            // window.open('page2.html', '_blank');
+            // console.log('sucsess');
+            myModal()
+        });
+    });
+
+    // const scriptURL = 'https://script.google.com/macros/s/AKfycbwSnyk3-OSnZ6uWE67UPBztjqb-g-xb9MMYouzZKm0LCDCbcP5H3uBv6DiYy_9h3rdr/exec'
+    // const form = document.forms['submit-to-google-sheet']
+
+    // form.addEventListener('submit', e => {
+    //     e.preventDefault()
+    //     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+    //         .then(response => console.log('Success!', response))
+    //         .catch(error => console.error('Error!', error.message))
+    // })
 })
 
 
@@ -41,12 +68,13 @@ onMounted(() => {
         <div class="gradient"></div>
         <div class="gradient2"></div>
         <h1>Извлечем смысл из ваших документов понятным языком</h1>
-        <p class="heroSbh">Минч ИИ – это поисковая система на основе глубоких нейронных сетей, преобразующая массив внутренней документации в активную среду знаний
+        <p class="heroSbh">Минч ИИ – это поисковая система на основе глубоких нейронных сетей, преобразующая массив
+            внутренней документации в активную среду знаний
         </p>
 
 
-        <form class="form-container" name="submit-to-google-sheet">
-            <input class="input" name="email" type="email" placeholder="Введите ваш email" required>
+        <form class="form-container" name="submit-to-google-sheet" action="https://sheetdb.io/api/v1/vkofd3m3hmdyu" method="post" id="sheetdb-form">
+            <input class="input" name="email" type="data[email]" placeholder="Введите ваш email" required>
             <button class="button" type="submit">Получить консультацию</button>
         </form>
 
@@ -94,12 +122,11 @@ h1 {
 
 }
 
-.form-container{
+.form-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 16px;
     margin-top: 32px;
 }
-
 </style>

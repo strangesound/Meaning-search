@@ -1,9 +1,19 @@
+<script setup>
+  // const showModal = useState(false);
+  const showModal = useState('showModal', () => false)
+
+  // log(showModal)
+  // <Modal v-show="showModal" @close-modal="showModal = false"/>
+  //   <button @click="showModal = true">show</button>
+</script>
+
 <template>
   <div>
     <Header />
-    <Hero />
+    <Hero @open-modal="showModal = true"/>
     <Features />
     <Samples />
+    <Modal v-show="showModal" @close-modal="showModal = false"/>
     <Features />
     <Features />
     <Features />
