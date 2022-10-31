@@ -26,6 +26,37 @@ onMounted(() => {
         repeatRefresh: true
     })
     
+//ball mouse follow
+
+gsap.set(".ball", {xPercent: -50, yPercent: -50});
+
+const ball = document.querySelector(".ball");
+const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+const mouse = { x: pos.x, y: pos.y };
+const speed = 0.02;
+
+const xSet = gsap.quickSetter(ball, "x", "px");
+const ySet = gsap.quickSetter(ball, "y", "px");
+
+window.addEventListener("mousemove", e => {    
+  mouse.x = e.x;
+  mouse.y = e.y;  
+});
+
+gsap.ticker.add(() => {
+  
+  // adjust speed for higher refresh monitors
+  const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio()); 
+  
+  pos.x += (mouse.x - pos.x) * dt;
+  pos.y += (mouse.y - pos.y) * dt;
+  xSet(pos.x);
+  ySet(pos.y);
+});
+
+
+//ball mouse follow end
+
     
     let form = document.getElementById('sheetdb-form');
 
@@ -66,6 +97,8 @@ onMounted(() => {
     <div class="container">
         <div class="gradient"></div>
         <div class="gradient2"></div>
+        <div class="ball"></div>
+
         <h1>Извлечем смысл из ваших документов понятным языком</h1>
         <p class="heroSbh">Минч ИИ – это поисковая система на основе глубоких нейронных сетей, преобразующая массив
             внутренней документации в активную среду знаний
@@ -128,4 +161,19 @@ h1 {
     gap: 16px;
     margin-top: 32px;
 }
+
+.ball {
+  width: 50vmax;
+  height: 50vmax;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* border: 3px solid dodgerblue; */
+  background: radial-gradient(50% 50% at 50% 50%, rgba(54, 187, 166, .5) 0%, rgba(54, 187, 166, 0) 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  
+}
+
 </style>
