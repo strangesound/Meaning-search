@@ -1,7 +1,6 @@
 <script setup>
 import { gsap } from "gsap";
 // const emit = defineEmits('open-modal')
-import { defineEmits } from 'vue'
 
 const emit = defineEmits(['open-modal'])
 
