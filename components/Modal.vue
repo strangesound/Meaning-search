@@ -1,13 +1,9 @@
 <template>
     <div class="modal-overlay" @click.self="$emit('close-modal')">
       <div class="modal" >
-        <img class="check" src="~/assets/check-icon.png" alt="" />
         <h6>Спасибо за коннект!</h6>
         <p>С вами свяжется консультант</p>
         <button class="button" @click="$emit('close-modal')">Закрыть</button>
-      </div>
-      <div class="close">
-        <img class="close-img" src="~/assets/close-icon.svg" alt="" />
       </div>
     </div>
   </template>
