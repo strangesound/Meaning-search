@@ -33,7 +33,7 @@ gsap.set(".ball", {xPercent: -50, yPercent: -50});
 const ball = document.querySelector(".ball");
 const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 const mouse = { x: pos.x, y: pos.y };
-const speed = 0.02;
+const speed = 0.05;
 
 const xSet = gsap.quickSetter(ball, "x", "px");
 const ySet = gsap.quickSetter(ball, "y", "px");

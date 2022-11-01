@@ -13,6 +13,7 @@
     <Hero @open-modal="showModal = true"/>
     <Features />
     <Samples />
+    <Neural />
     <Modal v-show="showModal" @close-modal="showModal = false"/>
   </div>
 </template>

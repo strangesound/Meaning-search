@@ -71,28 +71,35 @@ onMounted(() => {
         <h2 class="subhead">
             Отраслевая специфика: Фарма
         </h2>
-        <div class="answers-container">
-            <p class="question question1 blinking-cursor"><span>запрос </span>Как получить спецодежду?</p>
-            <p class="answer answer1">ИД -П02-0 0-006 В3 Обращение технологической и одноразовой одежды и обуви</p>
-            <p class="answer answer2">Выдача и учет технологической одежды
-                Потребность комплектов одежды и принадлежностей для одного работника в год устанавливают с учетом
-                периодичности смены одежды и вида выполняемой работы.</p>
-            <p class="question question2 blinking-cursor"><span>запрос </span>Что делать, если отравился аламинолом?</p>
-            <p class="answer answer3">СпДС-П03-0 1-115 В3 Аламинол</p>
-            <p class="answer answer4">Меры первой помощи при случайном отравлении: При случайном попадании средства в желудок необходимо выпить несколько стаканов воды, с 10–20 измельчёнными таблетками активированного угля. При необходимости обратиться к врачу.
-            </p>
-            <p class="question question3 blinking-cursor"><span>запрос </span>Кто обеспечивает безопасность котельной?</p>
-            <p class="answer answer5">П Л-П05-0 5-001 В1 Положение о газовой службе БМК НАНОЛЕК
-            </p>
-            <p class="answer answer6">Газовая служба котельной БМК &laquo;НАНОЛЕК&raquo; предназначена для проведения комплекса мероприятий, обеспечивающих содержание опасных производственных объектов систем газового хозяйства в&nbsp;исправном и&nbsp;безопасном состоянии...
-            </p>
-        </div>
+        <div class="grid-container">
+            <div class="answers-container">
+                <p class="question question1 blinking-cursor"><span>запрос </span>Как получить спецодежду?</p>
+                <p class="answer answer1 green-back">ИД -П02-0 0-006 В3 Обращение технологической и одноразовой одежды и обуви</p>
+                <p class="answer answer2">Выдача и учет технологической одежды
+                    Потребность комплектов одежды и принадлежностей для одного работника в год устанавливают с учетом
+                    периодичности смены одежды и вида выполняемой работы.</p>
+                <p class="question question2 blinking-cursor"><span>запрос </span>Что делать, если отравился аламинолом?
+                </p>
+                <p class="answer answer3 green-back">СпДС-П03-0 1-115 В3 Аламинол</p>
+                <p class="answer answer4">Меры первой помощи при случайном отравлении: При случайном попадании средства
+                    в желудок необходимо выпить несколько стаканов воды, с 10–20 измельчёнными таблетками
+                    активированного угля. При необходимости обратиться к врачу.
+                </p>
+                <p class="question question3 blinking-cursor"><span>запрос </span>Кто обеспечивает безопасность
+                    котельной?</p>
+                <p class="answer answer5 green-back">П Л-П05-0 5-001 В1 Положение о газовой службе БМК НАНОЛЕК
+                </p>
+                <p class="answer answer6">Газовая служба котельной БМК &laquo;НАНОЛЕК&raquo; предназначена для
+                    проведения комплекса мероприятий, обеспечивающих содержание опасных производственных объектов систем
+                    газового хозяйства в&nbsp;исправном и&nbsp;безопасном состоянии...
+                </p>
+            </div>
 
-        <p class="sub2">В ответе нет точного соответствия запросу. Поиск был по смыслу!
-        </p>
-        <p class="subhead">Минч ИИ – это поисковая система на основе глубоких нейронных сетей, преобразующая массив
-            внутренней документации в активную среду знаний
-        </p>
+            <p class="sub2">В ответе нет точного соответствия. Нейросеть понимает смысл запроса
+            </p>
+
+
+        </div>
     </div>
 </template>
 
@@ -136,7 +143,7 @@ onMounted(() => {
 
 }
 
-.question span{ 
+.question span {
     text-transform: uppercase;
     color: var(--main-green-color);
     margin-right: 8px;
@@ -145,6 +152,7 @@ onMounted(() => {
 
 
 }
+
 .answer {
     border: 1px solid var(--main-green-color);
     border-radius: 15px;
@@ -152,8 +160,8 @@ onMounted(() => {
     display: flex;
     align-items: center;
     transition: background-color 2s;
-    max-width: fit-content;
-    max-width: 600px;
+    /* max-width: fit-content; */
+    /* max-width: 600px; */
 
 }
 
@@ -174,4 +182,16 @@ onMounted(() => {
     border-right: 2px solid var(--main-light-color);
     animation: 1s blinkTextCursor infinite;
 }
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    gap: 64px;
+}
+.green-back{
+    background: var(--main-green-color);
+    /* border-color: #fff; */
+}
+
 </style>

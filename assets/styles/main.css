@@ -201,14 +201,21 @@ body {
 .input {
   padding: 15px 20px;
   /* background: #FFFFFF; */
-  border: 1px solid var(--main-light-color);
+  border: 1px solid var(--main-green-color);
   border-radius: 20px;
   color: var(--main-blue-color);
+  min-width: 300px;
 }
 
 .input:focus, .input:focus-visible{
   border: 1px solid var(--main-green-color);
   /* background-color: var(--main-green-color); */
+}
+
+.input::placeholder{
+  color: var(--main-blue-color);
+  opacity: 1; /* Firefox */
+
 }
 
 .sub2{
