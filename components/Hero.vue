@@ -1,5 +1,9 @@
 <script setup>
 import { gsap } from "gsap";
+
+import * as THREE from 'three';
+import Stats from 'three/addons/libs/stats.module.js';
+
 // const emit = defineEmits('open-modal')
 
 const emit = defineEmits(['open-modal'])
@@ -25,39 +29,39 @@ onMounted(() => {
         ease: "power4.inOut",
         repeatRefresh: true
     })
-    
-//ball mouse follow
 
-gsap.set(".ball", {xPercent: -50, yPercent: -50});
+    //ball mouse follow
 
-const ball = document.querySelector(".ball");
-const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-const mouse = { x: pos.x, y: pos.y };
-const speed = 0.05;
+    gsap.set(".ball", { xPercent: -50, yPercent: -50 });
 
-const xSet = gsap.quickSetter(ball, "x", "px");
-const ySet = gsap.quickSetter(ball, "y", "px");
+    const ball = document.querySelector(".ball");
+    const pos = { x: window.innerWidth, y: window.innerHeight };
+    const mouse = { x: pos.x, y: pos.y };
+    const speed = 0.05;
 
-window.addEventListener("mousemove", e => {    
-  mouse.x = e.x;
-  mouse.y = e.y;  
-});
+    const xSet = gsap.quickSetter(ball, "x", "px");
+    const ySet = gsap.quickSetter(ball, "y", "px");
 
-gsap.ticker.add(() => {
-  
-  // adjust speed for higher refresh monitors
-  const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio()); 
-  
-  pos.x += (mouse.x - pos.x) * dt;
-  pos.y += (mouse.y - pos.y) * dt;
-  xSet(pos.x);
-  ySet(pos.y);
-});
+    window.addEventListener("mousemove", e => {
+        mouse.x = e.x;
+        mouse.y = e.y;
+    });
+
+    gsap.ticker.add(() => {
+
+        // adjust speed for higher refresh monitors
+        const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
+
+        pos.x += (mouse.x - pos.x) * dt;
+        pos.y += (mouse.y - pos.y) * dt;
+        xSet(pos.x);
+        ySet(pos.y);
+    });
 
 
-//ball mouse follow end
+    //ball mouse follow end
 
-    
+
     let form = document.getElementById('sheetdb-form');
 
 
@@ -76,15 +80,153 @@ gsap.ticker.add(() => {
         });
     });
 
-    // const scriptURL = 'https://script.google.com/macros/s/AKfycbwSnyk3-OSnZ6uWE67UPBztjqb-g-xb9MMYouzZKm0LCDCbcP5H3uBv6DiYy_9h3rdr/exec'
-    // const form = document.forms['submit-to-google-sheet']
 
-    // form.addEventListener('submit', e => {
-    //     e.preventDefault()
-    //     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-    //         .then(response => console.log('Success!', response))
-    //         .catch(error => console.error('Error!', error.message))
-    // })
+    // three
+
+    let container, stats, clock;
+
+    let camera, scene, renderer;
+
+    let line;
+
+    const segments = 500;
+    const r = 1000;
+    let t = 0;
+    container = document.getElementById('container');
+    let headerTextContainer = document.getElementById('header-text-container');
+    let width3d = container.offsetWidth;
+    let height3d = container.offsetHeight;
+
+
+    init();
+    animate();
+
+    function init() {
+
+        // console.log(container);
+        //
+        // console.log(width, height);
+
+        camera = new THREE.PerspectiveCamera(27, width3d / height3d, 1, 4000);
+        camera.position.z = 2750;
+        camera.position.x = -500;
+
+        scene = new THREE.Scene();
+
+        clock = new THREE.Clock();
+
+        const geometry = new THREE.BufferGeometry();
+        const material = new THREE.LineBasicMaterial({ vertexColors: true });
+
+        const positions = [];
+        const colors = [];
+
+        for (let i = 0; i < segments; i++) {
+
+            const x = Math.random() * r - r / 2;
+            const y = Math.random() * r - r / 2;
+            const z = Math.random() * r - r / 2;
+
+            // positions
+
+            positions.push(x, y, z);
+
+            // colors
+
+            colors.push((x / r) + 0.5);
+            colors.push((y / r) + 0.5);
+            colors.push((z / r) + 0.5);
+
+        }
+
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+        generateMorphTargets(geometry);
+
+        geometry.computeBoundingSphere();
+
+        line = new THREE.Line(geometry, material);
+        scene.add(line);
+
+        //
+
+        renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(width3d, height3d);
+        renderer.outputEncoding = THREE.sRGBEncoding;
+
+        container.appendChild(renderer.domElement);
+
+        //
+
+        // stats = new Stats();
+        // container.appendChild(stats.dom);
+
+        //
+
+        window.addEventListener('resize', onWindowResize);
+
+    }
+
+    function onWindowResize() {
+        width3d = container.offsetWidth;
+        height3d = container.offsetHeight;
+        console.log(width3d);
+        camera.aspect = width3d / height3d;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(width3d, height3d);
+
+    }
+
+    //
+
+    function animate() {
+
+        requestAnimationFrame(animate);
+
+        render();
+        // stats.update();
+
+    }
+
+    function render() {
+
+        const delta = clock.getDelta();
+        const time = clock.getElapsedTime();
+
+        line.rotation.x = time * 0.25;
+        line.rotation.y = time * 0.5;
+
+        t += delta * 0.5;
+        line.morphTargetInfluences[0] = Math.abs(Math.sin(t));
+
+        renderer.render(scene, camera);
+
+    }
+
+    function generateMorphTargets(geometry) {
+
+        const data = [];
+
+        for (let i = 0; i < segments; i++) {
+
+            const x = Math.random() * r - r / 2;
+            const y = Math.random() * r - r / 2;
+            const z = Math.random() * r - r / 2;
+
+            data.push(x, y, z);
+
+        }
+
+        const morphTarget = new THREE.Float32BufferAttribute(data, 3);
+        morphTarget.name = 'target1';
+
+        geometry.morphAttributes.position = [morphTarget];
+
+    }
+
+
 })
 
 
@@ -98,14 +240,17 @@ gsap.ticker.add(() => {
         <div class="gradient"></div>
         <div class="gradient2"></div>
         <div class="ball"></div>
+        <div class="header-text-container" id="header-text-container">
+            <h1>Извлечем <span>смысл</span> из ваших документов понятным языком</h1>
 
-        <h1>Извлечем смысл из ваших документов понятным языком</h1>
-        <p class="heroSbh">Минч ИИ – это поисковая система на основе глубоких нейронных сетей, преобразующая массив
-            внутренней документации в активную среду знаний
-        </p>
+            <p class="heroSbh">Минч ИИ – это поисковая система на основе глубоких нейронных сетей, преобразующая массив
+                внутренней документации в активную среду знаний
+            </p>
+        </div>
+        <div class="container3d" id="container"></div>
 
-
-        <form class="form-container" name="submit-to-google-sheet" action="https://sheetdb.io/api/v1/vkofd3m3hmdyu" method="post" id="sheetdb-form">
+        <form class="form-container" name="submit-to-google-sheet" action="https://sheetdb.io/api/v1/vkofd3m3hmdyu"
+            method="post" id="sheetdb-form">
             <input class="input" name="email" type="data[email]" placeholder="Введите ваш email" required>
             <button class="button" type="submit">Получить консультацию</button>
         </form>
@@ -118,9 +263,14 @@ gsap.ticker.add(() => {
 
 <style scoped>
 h1 {
-    font-size: max(22px, min(7.068vw, 95px));
+    font-size: max(22px, min(4.5vw, 75px));
     text-transform: uppercase;
     margin-left: -.45vw;
+    max-width: 70%;
+}
+
+h1 span {
+    font-weight: 700;
 }
 
 .gradient {
@@ -151,6 +301,7 @@ h1 {
     line-height: 120%;
     text-transform: uppercase;
     margin-top: 2.381vw;
+    max-width: 70%;
 
 }
 
@@ -163,17 +314,27 @@ h1 {
 }
 
 .ball {
-  width: 50vmax;
-  height: 50vmax;
-  position: fixed;
-  top: 0;
-  left: 0;
-  /* border: 3px solid dodgerblue; */
-  background: radial-gradient(50% 50% at 50% 50%, rgba(54, 187, 166, .5) 0%, rgba(54, 187, 166, 0) 100%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: -1;
-  
+    width: 50vmax;
+    height: 50vmax;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* border: 3px solid dodgerblue; */
+    background: radial-gradient(50% 50% at 50% 50%, rgba(54, 187, 166, .5) 0%, rgba(54, 187, 166, 0) 100%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+
 }
 
+#container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -5;
+    left: 0;
+    top: -10%;
+    mix-blend-mode: lighten;
+
+}
 </style>
