@@ -110,6 +110,7 @@ onMounted(() => {
         camera = new THREE.PerspectiveCamera(27, width3d / height3d, 1, 4000);
         camera.position.z = 2750;
         camera.position.x = -500;
+        camera.position.y = -200;
 
         scene = new THREE.Scene();
 
@@ -308,7 +309,7 @@ h1 span {
 .form-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 16px;
     margin-top: 32px;
 }
@@ -328,12 +329,12 @@ h1 span {
 }
 
 #container {
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     z-index: -5;
     left: 0;
-    top: -10%;
+    top: 0;
     mix-blend-mode: screen;
 
 }

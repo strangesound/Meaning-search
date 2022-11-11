@@ -2,7 +2,8 @@
     <div class="container">
         <div class="header">
             <div class="logo">
-                meaningsearch
+                <div class="logo-balls"></div>
+                <p class="">meaningsearch</p>
             </div>
             <ul class="nav-container">
                 <li class="nav-item">команда</li>
@@ -22,14 +23,23 @@
 
 .logo {
     text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.logo-balls {
+    background-image: url('./assets/images/logo-balls.svg');
+    width: 70px;
+    height: 24px;
+    margin-right: 10px;
+    object-fit: scale-down;
 }
 
 .nav-container {
     display: flex;
     margin-left: auto;
     gap: 16px;
-    /* z-index: 1; */
-
 }
 
 .nav-item {
