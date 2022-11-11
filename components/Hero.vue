@@ -89,7 +89,7 @@ onMounted(() => {
 
     let line;
 
-    const segments = 500;
+    const segments = 50;
     const r = 1000;
     let t = 0;
     container = document.getElementById('container');
@@ -280,7 +280,7 @@ h1 span {
     width: 75vmax;
     aspect-ratio: 1/1;
     background: radial-gradient(50% 50% at 50% 50%, #36BBA6 0%, rgba(54, 187, 166, 0) 100%);
-    z-index: -1;
+    z-index: -7;
     pointer-events: none;
 
 }
@@ -292,7 +292,7 @@ h1 span {
     width: 100vmax;
     aspect-ratio: 1/1;
     background: radial-gradient(50% 50% at 50% 50%, #36BBA6 0%, rgba(54, 187, 166, 0) 100%);
-    z-index: -1;
+    z-index: -7;
 
 }
 
@@ -334,7 +334,7 @@ h1 span {
     z-index: -5;
     left: 0;
     top: -10%;
-    mix-blend-mode: lighten;
+    mix-blend-mode: screen;
 
 }
 </style>
