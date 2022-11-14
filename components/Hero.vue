@@ -267,7 +267,7 @@ h1 {
     font-size: max(22px, min(4.5vw, 75px));
     text-transform: uppercase;
     margin-left: -.45vw;
-    max-width: 70%;
+    max-width: 700px;
 }
 
 h1 span {
@@ -302,7 +302,7 @@ h1 span {
     line-height: 120%;
     text-transform: uppercase;
     margin-top: 2.381vw;
-    max-width: 70%;
+    max-width: 700px;
 
 }
 
@@ -312,6 +312,7 @@ h1 span {
     justify-content: flex-start;
     gap: 16px;
     margin-top: 32px;
+    flex-wrap: wrap;
 }
 
 .ball {
@@ -337,5 +338,9 @@ h1 span {
     top: 0;
     mix-blend-mode: screen;
 
+}
+
+.container3d{
+    overflow: hidden;
 }
 </style>

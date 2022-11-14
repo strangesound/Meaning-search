@@ -149,6 +149,11 @@ table {
   --main-light-color: #fff;
 }
 
+html {
+  overflow-x: hidden;
+
+}
+
 body {
   background: var(--main-blue-color);
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
@@ -157,6 +162,7 @@ body {
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .container {
@@ -222,4 +228,20 @@ body {
   font-size: max(18px, min(2.381vw, 32px));
   margin-top: 32px;
 
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: #fff;
+}
+
+a {
+  transition: opacity .5s;
+}
+
+a:hover{
+  opacity: .8;
 }

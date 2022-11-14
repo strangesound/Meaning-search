@@ -3,7 +3,9 @@ import features from '~/assets/static/features.json';
 
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import TextPlugin from "gsap/TextPlugin";
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(TextPlugin);
 
 onMounted(() => {
     let tl = gsap.timeline({
@@ -20,13 +22,22 @@ onMounted(() => {
     }
     );
 
+    // cursor
+    gsap.fromTo('#cursor', { autoAlpha: 0, x: 0 }, { autoAlpha: 1, duration: 0.5, repeat: -1, ease: "steps(1)" });
+
+    //tween
+    // Как получить спецодежду?
+    // let tween = gsap.to('.question1', { text: { value: "this is a custom text written to show my easy approaches to make the typewriting easy!" }, duration: 5, delay: 1, ease: "none" })
+
+
+
+    //tween2
+
 
     tl.from('.question1', {
         autoAlpha: 0, duration: 0.1
     })
-    tl.from('.question1', {
-        width: 0, duration: 2, ease: "steps(20)"
-    })
+    tl.to(".question1 #text", {text: {value: "Как получить спецодежду?"}, delay: 1, ease: "none"})
     tl.from('.answer1', {
         autoAlpha: 0, duration: 1, ease: "power1.out"
     })
@@ -36,9 +47,7 @@ onMounted(() => {
     tl.from('.question2', {
         autoAlpha: 0, duration: 0.1
     })
-    tl.from('.question2', {
-        width: 0, duration: 2, ease: "steps(20)"
-    })
+    tl.to(".question2 #text", {text: {value: "Что делать, если отравился аламинолом?"}, delay: 1, ease: "none"})
     tl.from('.answer3', {
         autoAlpha: 0, duration: 1, ease: "power1.out"
     })
@@ -48,9 +57,7 @@ onMounted(() => {
     tl.from('.question3', {
         autoAlpha: 0, duration: 0.1
     })
-    tl.from('.question3', {
-        width: 0, duration: 2, ease: "steps(20)"
-    })
+    tl.to(".question3 #text", {text: {value: "Кто обеспечивает безопасность котельной?"}, delay: 1, ease: "none"})
     tl.from('.answer5', {
         autoAlpha: 0, duration: 1, ease: "power1.out"
     })
@@ -68,30 +75,37 @@ onMounted(() => {
 
 <template>
     <div class="container samples-container">
-        <h2 class="subhead">
+        <h2 id="sample" class="subhead">
             Отраслевая специфика: Фарма
         </h2>
         <div class="grid-container">
             <div class="answers-container">
-                <p class="question question1 blinking-cursor"><span>запрос </span>Как получить спецодежду?</p>
+                <div class="question question1">
+                    <span>запрос </span>
+                    <span id="text"></span>
+                    <span id="cursor">|</span>
+                </div>
                 <p class="answer answer1 green-back">ИД -П02-0 0-006 В3 Обращение технологической и одноразовой одежды и обуви</p>
                 <p class="answer answer2">Выдача и учет технологической одежды
-                    Потребность комплектов одежды и принадлежностей для одного работника в год устанавливают с учетом
-                    периодичности смены одежды и вида выполняемой работы.</p>
-                <p class="question question2 blinking-cursor"><span>запрос </span>Что делать, если отравился аламинолом?
+                    Потребность комплектов одежды и принадлежностей для одного работника в год устанавливают с учетом периодичности смены одежды и вида выполняемой работы.</p>
+                <p class="question question2">
+                    <span>запрос </span>
+                    <span id="text"></span>
+                    <span id="cursor">|</span>
+
                 </p>
                 <p class="answer answer3 green-back">СпДС-П03-0 1-115 В3 Аламинол</p>
-                <p class="answer answer4">Меры первой помощи при случайном отравлении: При случайном попадании средства
-                    в желудок необходимо выпить несколько стаканов воды, с 10–20 измельчёнными таблетками
-                    активированного угля. При необходимости обратиться к врачу.
+                <p class="answer answer4">Меры первой помощи при случайном отравлении: При случайном попадании средства в желудок необходимо выпить несколько стаканов воды, с 10–20 измельчёнными таблетками активированного угля. При необходимости обратиться к врачу.
                 </p>
-                <p class="question question3 blinking-cursor"><span>запрос </span>Кто обеспечивает безопасность
-                    котельной?</p>
+                <p class="question question3">
+                    <span>запрос </span>
+                    <span id="text"></span>
+                    <span id="cursor">|</span>
+
+                </p>
                 <p class="answer answer5 green-back">П Л-П05-0 5-001 В1 Положение о газовой службе БМК НАНОЛЕК
                 </p>
-                <p class="answer answer6">Газовая служба котельной БМК &laquo;НАНОЛЕК&raquo; предназначена для
-                    проведения комплекса мероприятий, обеспечивающих содержание опасных производственных объектов систем
-                    газового хозяйства в&nbsp;исправном и&nbsp;безопасном состоянии...
+                <p class="answer answer6">Газовая служба котельной БМК &laquo;НАНОЛЕК&raquo; предназначена для проведения комплекса мероприятий, обеспечивающих содержание опасных производственных объектов систем газового хозяйства в&nbsp;исправном и&nbsp;безопасном состоянии...
                 </p>
             </div>
 
@@ -133,24 +147,22 @@ onMounted(() => {
     /* border: 1px solid var(--main-light-color); */
     /* border-radius: 15px; */
     padding: 0px 8px 0 16px;
-    display: flex;
-    align-items: center;
+    /* display: flex; */
+    /* align-items: center; */
     transition: background-color 2s;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     overflow: hidden;
     margin-top: 32px;
 
 
 }
 
-.question span {
+.question span:nth-child(1) {
     text-transform: uppercase;
     color: var(--main-green-color);
     margin-right: 8px;
     font-weight: 700;
     font-size: 14px;
-
-
 }
 
 .answer {
@@ -175,23 +187,30 @@ onMounted(() => {
     flex-direction: column;
     gap: 16px;
     align-items: flex-start;
+    /* width: 100%; */
 }
 
 .blinking-cursor {
-    color: #fff;
-    border-right: 2px solid var(--main-light-color);
-    animation: 1s blinkTextCursor infinite;
+    /* color: #fff; */
+    /* border-right: 2px solid var(--main-light-color); */
+    /* animation: 1s blinkTextCursor infinite; */
 }
 
-.grid-container{
+.grid-container {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
     gap: 64px;
 }
-.green-back{
+
+.green-back {
     background: var(--main-green-color);
     /* border-color: #fff; */
+}
+
+#cursor {
+  margin: 0;
+  display: inline-block;
 }
 
 </style>
