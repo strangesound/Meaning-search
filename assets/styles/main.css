@@ -150,7 +150,8 @@ table {
 }
 
 html {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  /* overflow: hidden; */
 
 }
 
@@ -244,4 +245,13 @@ a {
 
 a:hover{
   opacity: .8;
+}
+
+.lock {
+  overflow-y: hidden;
+  /* position: fixed; */
+}
+
+img{
+  max-width: 100%;
 }

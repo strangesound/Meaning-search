@@ -1,14 +1,19 @@
 <script setup>
 import navItem from '~/assets/static/nav.json';
+    let menuOpen = useState('menuOpen', () => false)
 
-// const menuOpen = ref(false);
-const menuOpen = useState('menuOpen', () => false)
+    function menuToggle() {
+        // document.body.style.overflow = menuOpen ? 'hidden' : '';
+        if (menuOpen.value) {
+            document.body.classList.remove('lock');
+        }
+        else {
+            document.body.classList.add('lock');
+        }
+        menuOpen.value = !menuOpen.value;
+        // console.log(menuOpen);
+    }
 
-
-
-// const menuOpen = () => useState(false)
-
-// console.log(menuOpen);
 
 </script>
 
@@ -25,7 +30,7 @@ const menuOpen = useState('menuOpen', () => false)
                         <NuxtLink :to="{ path: '/', hash: nav.path }">{{ nav.name }}</NuxtLink>
                     </li>
                 </ul>
-                <div class="burger-btn" @click="menuOpen = !menuOpen" :class="[menuOpen ? 'burger-btn-opened' : '']">
+                <div class="burger-btn" @click="menuToggle" :class="[menuOpen ? 'burger-btn-opened' : '']">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -35,7 +40,7 @@ const menuOpen = useState('menuOpen', () => false)
 
                 <ul class="">
                     <li class="mob-nav-item" v-for="nav in navItem">
-                        <NuxtLink @click="menuOpen = !menuOpen" :to="{ path: '/', hash: nav.path }">{{ nav.name }}
+                        <NuxtLink @click="menuToggle" :to="{ path: '/', hash: nav.path }">{{ nav.name }}
                         </NuxtLink>
                     </li>
                 </ul>
@@ -180,7 +185,7 @@ const menuOpen = useState('menuOpen', () => false)
     transform: translateX(0);
     pointer-events: all;
     visibility: initial;
-    overflow: hidden;
+    overflow: auto;
 
 }
 
