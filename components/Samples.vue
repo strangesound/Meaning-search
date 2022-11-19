@@ -1,5 +1,5 @@
 <script setup>
-import features from '~/assets/static/features.json';
+import forWho from '~/assets/static/forWho.json';
 
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -37,7 +37,7 @@ onMounted(() => {
     tl.from('.question1', {
         autoAlpha: 0, duration: 0.1
     })
-    tl.to(".question1 #text", {text: {value: "Как получить спецодежду?"}, delay: 1, ease: "none"})
+    tl.to(".question1 #text", { text: { value: "Как получить спецодежду?" }, delay: 1, ease: "none" })
     tl.from('.answer1', {
         autoAlpha: 0, duration: 1, ease: "power1.out"
     })
@@ -47,7 +47,7 @@ onMounted(() => {
     tl.from('.question2', {
         autoAlpha: 0, duration: 0.1
     })
-    tl.to(".question2 #text", {text: {value: "Что делать, если отравился аламинолом?"}, delay: 1, ease: "none"})
+    tl.to(".question2 #text", { text: { value: "Что делать, если отравился аламинолом?" }, delay: 1, ease: "none" })
     tl.from('.answer3', {
         autoAlpha: 0, duration: 1, ease: "power1.out"
     })
@@ -57,7 +57,7 @@ onMounted(() => {
     tl.from('.question3', {
         autoAlpha: 0, duration: 0.1
     })
-    tl.to(".question3 #text", {text: {value: "Кто обеспечивает безопасность котельной?"}, delay: 1, ease: "none"})
+    tl.to(".question3 #text", { text: { value: "Кто обеспечивает безопасность котельной?" }, delay: 1, ease: "none" })
     tl.from('.answer5', {
         autoAlpha: 0, duration: 1, ease: "power1.out"
     })
@@ -75,9 +75,22 @@ onMounted(() => {
 
 <template>
     <div class="container samples-container">
-        <h2 id="sample" class="subhead">
-            Отраслевая специфика: Фарма
+        <h2 id="who" class="subhead">
+            Для кого решение Минч ИИ
         </h2>
+
+        <div class="features">
+            <p v-for="feature in forWho" :key="feature.feature" class="feature">
+                <span v-html="feature.feature"></span>
+            </p>
+        </div>
+
+        <h3 class="subhead2">
+            Отраслевой кейс: фарма
+        </h3>
+
+        <p>В&nbsp;рамках проекта было реализовано как решение по&nbsp;цифровизации базы данных фармацевтической системы качества, так и&nbsp;функционал семантического поисковика. Охват составил несколько тысяч инструкций и&nbsp;СОПов. Активное число пользователей системы более 100. Срок реализации&nbsp;&mdash; 4&nbsp;месяца.</p>
+
         <div class="grid-container">
             <div class="answers-container">
                 <div class="question question1">
@@ -86,8 +99,7 @@ onMounted(() => {
                     <span id="cursor">|</span>
                 </div>
                 <p class="answer answer1 green-back">ИД -П02-0 0-006 В3 Обращение технологической и одноразовой одежды и обуви</p>
-                <p class="answer answer2">Выдача и учет технологической одежды
-                    Потребность комплектов одежды и принадлежностей для одного работника в год устанавливают с учетом периодичности смены одежды и вида выполняемой работы.</p>
+                <p class="answer answer2">Выдача и учет технологической одежды. Потребность комплектов одежды и принадлежностей для одного работника в год устанавливают с учетом периодичности смены одежды и вида выполняемой работы.</p>
                 <p class="question question2">
                     <span>запрос </span>
                     <span id="text"></span>
@@ -95,7 +107,9 @@ onMounted(() => {
 
                 </p>
                 <p class="answer answer3 green-back">СпДС-П03-0 1-115 В3 Аламинол</p>
-                <p class="answer answer4">Меры первой помощи при случайном отравлении: При случайном попадании средства в желудок необходимо выпить несколько стаканов воды, с 10–20 измельчёнными таблетками активированного угля. При необходимости обратиться к врачу.
+                <p class="answer answer4">Меры первой помощи при случайном отравлении: При случайном попадании средства
+                    в желудок необходимо выпить несколько стаканов воды, с 10–20 измельчёнными таблетками
+                    активированного угля. При необходимости обратиться к врачу.
                 </p>
                 <p class="question question3">
                     <span>запрос </span>
@@ -200,7 +214,7 @@ onMounted(() => {
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
-    gap: 64px;
+    gap: 32px;
 }
 
 .green-back {
@@ -209,8 +223,9 @@ onMounted(() => {
 }
 
 #cursor {
-  margin: 0;
-  display: inline-block;
+    margin: 0;
+    display: inline-block;
 }
+
 
 </style>

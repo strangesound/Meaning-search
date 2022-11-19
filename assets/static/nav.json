@@ -1,15 +1,20 @@
 [
     {
-        "name": "команда",
-        "path": "#crew"
+        "name": "преимущества",
+        "path": "#benefits"
     },
     {
         "name": "для кого",
         "path": "#who"
     },
     {
-        "name": "пример",
-        "path": "#sample"
+        "name": "команда",
+        "path": "#crew"
+    },
+
+    {
+        "name": "как работает",
+        "path": "#works"
     },
     {
         "name": "контакты",

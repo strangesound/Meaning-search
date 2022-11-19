@@ -22,7 +22,7 @@ import navItem from '~/assets/static/nav.json';
         <div class="header" id="top">
             <NuxtLink :to="{ path: '/', hash: '#top' }" class="logo">
                 <div class="logo-balls"></div>
-                <p class="">meaningsearch</p>
+                <p class="">Minch&nbspAI</p>
             </NuxtLink>
             <div class="nav-container-burger">
                 <ul class="nav-container">
@@ -59,7 +59,7 @@ import navItem from '~/assets/static/nav.json';
 }
 
 .logo {
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     display: flex;
     flex-direction: row;
     align-items: center;

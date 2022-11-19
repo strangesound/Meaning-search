@@ -264,10 +264,11 @@ onMounted(() => {
 
 <style scoped>
 h1 {
-    font-size: max(22px, min(4.5vw, 75px));
+    font-size: max(22px, min(4.5vw, 51px));
     text-transform: uppercase;
     margin-left: -.45vw;
     max-width: 700px;
+    line-height: 120%;
 }
 
 h1 span {

@@ -164,6 +164,7 @@ body {
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
+  line-height: 120%;
 }
 
 .container {
@@ -179,7 +180,15 @@ body {
   font-size: max(22px, min(2.976vw, 40px));
   line-height: 120%;
   text-transform: uppercase;
-  margin-top: 2.381vw;
+  margin-top: 5vw;
+
+}
+.subhead2 {
+  font-size: max(20px, min(2vw, 30px));
+  line-height: 120%;
+  text-transform: uppercase;
+  margin-top: 5vw;
+  margin-bottom: 2vw;
 
 }
 
@@ -227,7 +236,7 @@ body {
 
 .sub2 {
   font-size: max(18px, min(2.381vw, 32px));
-  margin-top: 32px;
+  /* margin-top: 32px; */
 
 }
 
@@ -254,4 +263,42 @@ a:hover{
 
 img{
   max-width: 100%;
+}
+
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  /* grid-template-columns: repeat(auto-fit, minmax(304px, 1fr)); */
+  justify-items: start;
+
+}
+
+.feature {
+  /* max-width: 250px; */
+  border: 1px solid var(--main-light-color);
+  border-radius: 15px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  transition: background-color 2s;
+  justify-content: flex-start;
+  /* width: min-content; */
+}
+
+.feature:hover {
+  background-color: var(--main-green-color);
+  cursor: pointer;
+}
+
+.feature span {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+}
+
+.subhead {
+  margin-bottom: 32px;
 }

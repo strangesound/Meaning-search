@@ -21,7 +21,7 @@ onMounted(() => {
 
 
 <template>
-    <div class="container">
+    <div id="benefits" class="container">
         <h2 class="subhead">
             преимущества системы
         </h2>
@@ -32,42 +32,3 @@ onMounted(() => {
         </div>
     </div>
 </template>
-
-<style scoped>
-.features {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    /* grid-template-columns: repeat(auto-fit, minmax(304px, 1fr)); */
-    justify-items: start;
-
-}
-
-.feature {
-    /* max-width: 250px; */
-    border: 1px solid var(--main-light-color);
-    border-radius: 15px;
-    padding: 8px 16px;
-    display: flex;
-    align-items: center;
-    transition: background-color 2s;
-    justify-content: flex-start;
-    /* width: min-content; */
-}
-
-.feature:hover {
-    background-color: var(--main-green-color);
-    cursor: pointer;
-}
-
-.feature span {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-
-}
-
-.subhead {
-    margin-bottom: 32px;
-}
-</style>

@@ -14,6 +14,9 @@
     <Features />
     <Samples />
     <Neural />
+    <Team />
+    <HowItWorks />
+    <Footer />
     <Modal v-show="showModal" @close-modal="showModal = false"/>
   </div>
 </template>
