@@ -22,7 +22,7 @@ import navItem from '~/assets/static/nav.json';
         <div class="header" id="top">
             <NuxtLink :to="{ path: '/', hash: '#top' }" class="logo">
                 <div class="logo-balls"></div>
-                <p class="">Minch&nbspAI</p>
+                <p class="">Minch&nbspAI<br>Meaningful search</p>
             </NuxtLink>
             <div class="nav-container-burger">
                 <ul class="nav-container">

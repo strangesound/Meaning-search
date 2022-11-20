@@ -7,7 +7,7 @@
         <div class="container3d" id="container"></div>
 
         <p class="quote">
-            Meanch AI. Searching for the meaning<br>
+            Minch AI. Searching for the meaning<br>
             Минч ИИ – это поисковая система на основе глубоких нейронных сетей, преобразующая массив
             внутренней документации в активную среду знаний
         </p>
