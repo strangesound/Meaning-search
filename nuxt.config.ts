@@ -15,18 +15,5 @@ export default defineNuxtConfig({
   },
   css: ["@/assets/styles/main.css"],
 
-  modules: [
-    [
-      '@nuxtjs/yandex-metrika',
-      {
-        id: '91359994',
-        webvisor: true,
-        clickmap: true,
-        // useCDN: false,
-        trackLinks: true,
-        accurateTrackBounce: true,
-      }
-    ]
-  ]
 
 })
