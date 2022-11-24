@@ -2,9 +2,9 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'Meaning search',
+      title: 'Meaningful search',
       meta: [
-        { name: 'description', content: 'Meaning search. Извлечем смысл из ваших документов понятным языком' }
+        { name: 'description', content: 'Meaningful search. Извлечем смысл из ваших документов понятным языком' }
       ],
       link: [ {rel: 'icon', type: "image/x-icon", href: '/favicon.ico?v2'} ],
       htmlAttrs: {
@@ -14,4 +14,19 @@ export default defineNuxtConfig({
     }
   },
   css: ["@/assets/styles/main.css"],
+
+  modules: [
+    [
+      '@nuxtjs/yandex-metrika',
+      {
+        id: '91359994',
+        webvisor: true,
+        clickmap: true,
+        // useCDN: false,
+        trackLinks: true,
+        accurateTrackBounce: true,
+      }
+    ]
+  ]
+
 })

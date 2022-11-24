@@ -11,6 +11,7 @@
     "nuxt": "3.0.0-rc.12"
   },
   "dependencies": {
+    "@nuxtjs/yandex-metrika": "^1.4.0",
     "@splinetool/runtime": "^0.9.134",
     "gsap": "^3.11.3",
     "three": "^0.146.0",
