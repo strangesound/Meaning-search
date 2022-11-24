@@ -172,7 +172,6 @@ onMounted(() => {
     function onWindowResize() {
         width3d = container.offsetWidth;
         height3d = container.offsetHeight;
-        console.log(width3d);
         camera.aspect = width3d / height3d;
         camera.updateProjectionMatrix();
 
