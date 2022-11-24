@@ -16,10 +16,7 @@
     <Neural />
     <Team />
     <HowItWorks />
-    <br>
-    <br>
-    <br>
-    <br>
+    <Footer />
     <Modal v-show="showModal" @close-modal="showModal = false"/>
   </div>
 </template>

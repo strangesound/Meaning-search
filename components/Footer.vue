@@ -12,11 +12,7 @@ import howItWorks from '~/assets/static/howItWorks.json';
         </h2>
 
         <div class="contacts_container">
-            <a href="tel:+79999999999">+7 999 999-99-99</a>
-
-            <a href="tel:+79999999999">Whatsapp</a>
-
-            <a href="tel:+79999999999">Telegram</a>
+            <NuxtLink href="https://t.me/+79162625460" target="_blank">Telegram</NuxtLink>
         </div>
 
 
