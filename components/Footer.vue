@@ -12,7 +12,7 @@ import howItWorks from '~/assets/static/howItWorks.json';
         </h2>
 
         <div class="contacts_container">
-            <NuxtLink href="https://t.me/+79162625460" target="_blank">Telegram</NuxtLink>
+            <NuxtLink class="button" href="https://t.me/+79162625460" target="_blank">Telegram</NuxtLink>
         </div>
 
 
@@ -23,6 +23,8 @@ import howItWorks from '~/assets/static/howItWorks.json';
 <style scoped>
 .contacts_container {
     display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
     gap: 16px;
     margin-bottom: 32px;
