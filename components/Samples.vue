@@ -76,7 +76,7 @@ onMounted(() => {
 <template>
     <div class="container samples-container">
         <h2 id="who" class="subhead">
-            Для кого решение Минч ИИ
+            Для кого решение Минч&nbsp;ИИ
         </h2>
 
         <div class="features">
