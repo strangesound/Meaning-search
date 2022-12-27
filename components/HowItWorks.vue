@@ -1,5 +1,6 @@
 <script setup>
 import howItWorks from '~/assets/static/howItWorks.json';
+const showModalSertificate = useState('showModalSertificate', () => false)
 
 </script>
 
@@ -17,15 +18,35 @@ import howItWorks from '~/assets/static/howItWorks.json';
             </p>
         </div>
 
+        <button @click="showModalSertificate = true" class="sertificate">
+            <img src="../assets/images/sert-icon.png" width="100px" height="100px" alt="Иконка сертификата">
+            Сертификат «Digital MedTech»
+        </button>
+        <ModalSertificate v-show="showModalSertificate" @close-modal="showModalSertificate = false" />
 
-
-
-       
     </div>
 </template>
 
 <style scoped>
+.sertificate {
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--main-light-color);
+    margin-top: 64px;
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 1s;
+    text-align: left;
 
+}
 
-
+.sertificate:hover {
+    opacity: .8;
+}
 </style>
