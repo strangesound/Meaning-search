@@ -1,5 +1,5 @@
 <script setup>
-import howItWorks from '~/assets/static/howItWorks.json';
+// import howItWorks from '~/assets/static/howItWorks.json';
 
 </script>
 
@@ -11,11 +11,18 @@ import howItWorks from '~/assets/static/howItWorks.json';
             Контакты
         </h2>
 
+        <p class="">119234, Москва, тер. Ленинские горы, д. 1, стр. 77 </p>
+        <br>        <br>
+
         <div class="contacts_container">
             <NuxtLink class="button" href="https://t.me/+79162625460" target="_blank">Telegram</NuxtLink>
             <NuxtLink class="button" href="mailto:info@meanch.com" target="_blank">E-mail</NuxtLink>
         </div>
+        <br>
+        <p class="">© ООО «Минч ИИ», 2023</p>
 
+        <br>
+        <br>
 
 
     </div>

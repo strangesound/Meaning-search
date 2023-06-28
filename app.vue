@@ -46,6 +46,8 @@ onMounted(() => {
         <Neural />
         <Team />
         <HowItWorks @open-modal="showModalSertificate = true"/>
+        <Cost />
+        <Docs />
         <Footer />
         <Modal v-show="showModal" @close-modal="showModal = false" />
       </div>
