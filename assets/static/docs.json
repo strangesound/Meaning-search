@@ -1,23 +1,31 @@
 [
     {
-        "feature": "Описание функциональных характеристик программы"
+      "feature": "Описание функциональных характеристик программы",
+      "feature_link": "https://disk.yandex.ru/i/G8igpQv6hhqnRQ"
     },
     {
-        "feature": "Жизненный цикл ПО"
+      "feature": "Жизненный цикл ПО",
+      "feature_link": "https://disk.yandex.ru/i/CFB0ekqzB44oJQ"
     },
     {
-        "feature": "Руководство администратора"
+      "feature": "Руководство администратора",
+      "feature_link": "https://disk.yandex.ru/i/JEP4vAwrVh-McQ"
     },
     {
-        "feature": "Руководство по установке"
+      "feature": "Руководство по установке",
+      "feature_link": "https://disk.yandex.ru/i/HAIrbNDhORCHzQ"
     },
     {
-        "feature": "Руководство пользователя"
+      "feature": "Руководство пользователя",
+      "feature_link": "https://disk.yandex.ru/i/sBPmb1pYjSUd7w"
     },
     {
-        "feature": "Свидетельство о государственной регистрации ПО"
+      "feature": "Свидетельство о государственной регистрации ПО",
+      "feature_link": "https://disk.yandex.ru/i/Wva4jyuL2qLieQ"
     },
     {
-        "feature": "Лицензионое соглашение"
+      "feature": "Лицензионое соглашение",
+      "feature_link": "https://disk.yandex.ru/i/MsnOLNSjRFP48A"
     }
-]
+  ]
+  

@@ -13,7 +13,7 @@ const showModalSertificate = useState('showModalSertificate', () => false)
         </h2>
 
         <div class="features">
-            <a href="https://disk.yandex.com/d/8mc9XsclHBJ_gg" target="_blank" v-for="feature in docs" :key="feature.feature" class="feature">
+            <a :href="feature.feature_link" target="_blank" v-for="feature in docs" :key="feature.feature" class="feature">
                 <span v-html="feature.feature"></span>
             </a>
         </div>
