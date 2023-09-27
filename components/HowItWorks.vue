@@ -22,6 +22,14 @@ const showModalSertificate = useState('showModalSertificate', () => false)
             <img src="../assets/images/sert-icon.png" width="100px" height="100px" alt="Иконка сертификата">
             Сертификат «Digital MedTech»
         </button>
+
+        <div class="sertificate sertificate-reestr">
+            <img src="../assets/images/sert-icon.png" width="100px" height="100px" alt="Иконка сертификата">
+            РЕЕСТР российского ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ №19231 от 23.09.2023
+        </div>
+
+
+
         <ModalSertificate v-show="showModalSertificate" @close-modal="showModalSertificate = false" />
 
     </div>
@@ -44,6 +52,12 @@ const showModalSertificate = useState('showModalSertificate', () => false)
     transition: opacity 1s;
     text-align: left;
 
+
+}
+
+.sertificate-reestr{
+    margin-top: 10px;
+    padding: 6px;
 }
 
 .sertificate:hover {
