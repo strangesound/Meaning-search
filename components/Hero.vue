@@ -246,7 +246,33 @@ onMounted(() => {
             <p class="heroSbh">Минч ИИ – это поисковая система на основе глубоких нейронных сетей, преобразующая массив
                 внутренней документации в активную среду знаний
             </p>
+
+            <div class="two-columns">
+                <div class="cont">
+                    <p class="bold">
+                        Поиск через поисковую строку</p>
+                    <p class="quote">
+                        Семантический поисковик: выдача ответа на поисковый запрос в виде ссылки на документ и
+                        выделенным
+                        прямов нем наиболее совпадающим по смыслу абзацем
+                    </p>
+                </div>
+                <div class="cont">
+                    <p class="bold">
+                        Поиск через диалог с чат-ботом</p>
+                    <p class="quote">
+                        Виртуальный консультант: генерация релевантного ответа в режиме диалога с чат-ботом без
+                        галлюцинаций. Основан на RAG-подходе
+                    </p>
+                </div>
+            </div>
+
         </div>
+
+
+
+
+
         <div class="container3d" id="container"></div>
 
         <form class="form-container" name="submit-to-google-sheet" action="https://sheetdb.io/api/v1/vkofd3m3hmdyu"
@@ -262,6 +288,19 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.bold {
+    font-weight: 700;
+}
+
+
+.two-columns {
+    margin: 5vw 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2vw;
+}
+
+
 h1 {
     font-size: max(22px, min(4.5vw, 51px));
     text-transform: uppercase;
@@ -340,7 +379,7 @@ h1 span {
 
 }
 
-.container3d{
+.container3d {
     overflow: hidden;
 }
 </style>

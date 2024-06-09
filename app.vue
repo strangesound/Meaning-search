@@ -41,9 +41,11 @@ onMounted(() => {
 
         <Header />
         <Hero @open-modal="showModal = true" />
+        <About />
         <Features />
+        <Chat />
         <Samples />
-        <Neural />
+        <!-- <Neural /> -->
         <Team />
         <HowItWorks @open-modal="showModalSertificate = true"/>
         <Cost />

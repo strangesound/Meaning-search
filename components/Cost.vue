@@ -21,6 +21,10 @@ const showModalSertificate = useState('showModalSertificate', () => false)
                     • Поиск по документам форматов: DOCX, RTF, XLSX, CSV, ODS, PPTX, ODT, TXT, XML, PDF (с текстовым слоем)
                     <br>
                     • Аналитика
+                    <br>
+                    • Отображение связей между документами
+                    <br>
+                    • Многоязычный поиск
                 </p>
                 <a class="button" href="mailto:info@meanch.com" >Запросить стоимость</a>
 
@@ -36,8 +40,17 @@ const showModalSertificate = useState('showModalSertificate', () => false)
                     • Поиск по сканированным документам <br>
                     • Поиск по конструкторской документации <br>
                     • Ролевая модель <br>
-                    • Виртуальный ассистент а-ля «ChatGPT» <br>
+                    • Виртуальный ассистент а-ля «ChatGPT» 
+                    <br>
                     • Аналитика
+                    <br>
+                    • Отображение связей между документами
+                    <br>
+                    • Многоязычный поиск
+                    <br>
+                    • Учет удовлетворенности пользователей
+                    <br>
+                    • Саммаризация (автореферирование)
                 </p>
                 <a class="button" href="mailto:info@meanch.com" >Запросить стоимость</a>
 

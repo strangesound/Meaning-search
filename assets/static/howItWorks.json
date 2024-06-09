@@ -16,5 +16,8 @@
     },
     {
         "feature": "Добиваемся соответствия продукта базовым требованиям GMP"
+    },
+    {
+        "feature": "Стек разработки решения: backend - Python, PyTorch, transformers, vLLM; frontend — JS, Vue.js."
     }
 ]
