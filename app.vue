@@ -50,6 +50,7 @@ onMounted(() => {
         <HowItWorks @open-modal="showModalSertificate = true"/>
         <Cost />
         <Docs />
+        <Partners />
         <Footer />
         <Modal v-show="showModal" @close-modal="showModal = false" />
       </div>

@@ -300,6 +300,14 @@ onMounted(() => {
     gap: 2vw;
 }
 
+@media (max-width: 768px) {
+    .two-columns {
+        grid-template-columns: 1fr;
+
+
+    }
+}
+
 
 h1 {
     font-size: max(22px, min(4.5vw, 51px));
